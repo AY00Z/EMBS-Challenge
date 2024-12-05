@@ -1,0 +1,75 @@
+/* Reservation Card Styling */
+.reservation-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: #baccb9;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Info Section */
+.reservation-info {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reservation-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reservation-location {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.reservation-date {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.reservation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.reservation-section-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* Button Section */
+.reservation-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+
+.reservation-accept-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #12470f;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 80px;
+    margin-left: 30px;
+}
+
+.reservation-accept-button:hover {
+    background-color: #5d9760;
+    transform: scale(1.05);
+}

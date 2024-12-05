@@ -1,0 +1,92 @@
+/* General container styling */
+.breathing-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #bfb090; /* Matches the beige background */
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+  height: 493px;
+}
+
+/* Text section styling */
+.breathing-text-section {
+  flex: 1;
+  padding: 20px;
+  margin-top: -30px;
+}
+
+.breathing-title {
+  font-size: 64px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.2;
+  letter-spacing: 3%;
+  margin-bottom: 15px;
+  color: #ffffff; /* Adjusted for visibility */
+  margin-left: -140px;
+  width: 390px;
+  height: 161px;
+}
+
+.breathing-description {
+  font-size: 22px;
+  line-height: 1.6;
+  margin-left: -140px;
+  width: 792px;
+}
+
+/* Image section styling */
+.breathing-image-section {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.breathing-image-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%; /* Covers half the width of the section */
+  height: 70%; /* Covers half the height of the section */
+  background-color: #f5ecda;
+  opacity: 102%;
+  z-index: 1;
+  margin-left: -20px;
+  margin-top: -4px;
+}
+
+.breathing-image {
+  max-width: 100%;
+  height: 492px;
+  position: relative;
+  z-index: 2; /* Places the image above the pseudo-element */
+  margin-left: -289px;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+  .breathing-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .breathing-text-section {
+    padding: 10px;
+  }
+
+  .breathing-image {
+    margin-top: 20px;
+    max-width: 80%;
+  }
+
+  .breathing-image-section::before {
+    width: 100%;
+    height: 30%; /* Adjust for better effect on smaller screens */
+  }
+}

@@ -1,0 +1,65 @@
+/* Main container styling */
+.enter-chatbot-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  background-color: #f5f1e6; /* Matches the beige background */
+  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+  height:580px;
+}
+
+/* Description section styling */
+.chat-description {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+}
+
+.chat-description h1 {
+  font-size: 56px;
+  margin-bottom: 20px;
+  color: #857550;
+  letter-spacing: 3%;
+  margin-left: 40px;
+  font-style: medium;
+  letter-spacing: 0%;
+}
+
+.chat-description p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #857550;
+  margin-left: 40px;
+  margin-top: 25px;
+   
+}
+
+.chat-button {
+  background-color: #857550; /* Button background color */
+  color: #ffffff;
+  font-size: 22px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 300px;
+  width: 210px;
+  height: 60px;
+  border: solid 1px black;
+}
+
+.chat-button:hover {
+  background-color: #6d6344;
+}
+
+.chatbot-image {
+    height: 650px;
+    width: 500px;
+    margin-bottom: -104px;
+    margin-right: 70px;
+
+}

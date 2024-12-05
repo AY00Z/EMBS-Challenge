@@ -1,0 +1,115 @@
+/* Container */
+.therapist-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh; /* Ensure the container spans the full viewport height */
+    overflow: hidden; /* Prevent overflow issues */
+}
+
+/* Sidebar */
+.therapist-sidebar {
+    width: 20%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: rgb(244, 244, 244); /* Neutral background for sidebar */
+    border-right: 1px solid #dbdbdb; /* Add subtle border for separation */
+    box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
+}
+
+.therapist-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.therapist-logo-circle {
+    width: 120px; /* Slightly larger for better visibility */
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #00b9da;
+    object-fit: cover;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow to make it stand out */
+}
+
+.therapist-title {
+    font-size: 1.5rem; /* Slightly larger font for emphasis */
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-top: 0.5rem; /* Add spacing above */
+}
+
+.therapist-id {
+    font-size: 1rem;
+    color: #787486;
+    text-align: center;
+    margin-top: 0.2rem;
+}
+
+.therapist-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.therapist-divider {
+    height: 1px;
+    background-color: #dbdbdb;
+    margin: 1rem 0; /* Add spacing around divider */
+}
+
+.therapist-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.therapist-menu-item {
+    color: #787486;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem; /* Increased horizontal padding for a larger click area */
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.therapist-menu-item:hover {
+    background-color: rgba(0, 185, 218, 0.08);
+    color: #3a3946;
+}
+
+/* Highlight active menu item with underline */
+.therapist-menu-item.therapist-active {
+    text-decoration: underline; /* Adds underline to active menu item */
+    text-decoration-thickness: 2px; /* Optional: Adjust thickness of the underline */
+    text-underline-offset: 4px; /* Optional: Add space between text and underline */
+    color: #00b9da; /* Highlight color for active menu item */
+    font-weight: bold; /* Make active item bold for emphasis */
+}
+
+/* Main */
+.therapist-main {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100vh; /* Ensure it matches the full viewport height */
+    box-sizing: border-box;
+    width: calc(100% - 20%); /* Dynamically calculate width based on sidebar */
+    padding-inline: 2rem; /* Horizontal padding for spacing */
+    padding-block: 2rem; /* Vertical padding for spacing */
+    overflow-y: auto; /* Allow scrolling for overflowing content */
+}
+
+.therapist-main-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 1rem; /* Add spacing below title */
+}

@@ -1,0 +1,71 @@
+/* Navbar Container */
+.navbar1 {
+  display: flex;
+  justify-content: center; /* Center align the navbar links */
+  background-color: rgba(249, 246, 233); /* Background color with opacity */
+  padding: 0; /* Remove all padding to eliminate space from top, left, and right */
+  margin: 0; /* Ensure no external margin */
+  width: 100%; /* Ensure the navbar spans the entire width of the page */
+  position: fixed; /* Position navbar fixed at the top */
+  top: 0; /* Ensure navbar sticks to the top of the page */
+  left: 0; /* Ensure navbar sticks to the left edge of the page */
+  z-index: 1000; /* Ensure the navbar stays on top of other elements */
+  height: 60px; /* Define navbar height */
+  border-bottom: 2px solid #665018; /* Add a black border at the bottom */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow effect */
+  transition: opacity 0.3s ease; /* Smooth transition effect for opacity */
+}
+
+/* Navbar List */
+.navbar-links {
+  list-style-type: none;
+  display: flex;
+  gap: 20px; /* Space between links */
+  margin: 0;
+  padding: 0;
+  align-items: center; /* Align items vertically in the center */
+  width: 100%; /* Ensure the list takes full width */
+  justify-content: center; /* Center the items horizontally */
+}
+
+/* Navbar Items */
+.navbar-item {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #665018; /* Default color */
+  cursor: pointer;
+  position: relative; /* Required for the underline animation */
+  transition: color 0.3s ease, font-weight 0.3s ease;
+  text-decoration: none; /* Remove default text underline */
+}
+
+/* Remove default text-decoration for navbar-link */
+.navbar-link {
+  text-decoration: none; /* Ensure no underline on Link component */
+  color: inherit; /* Inherit color from navbar-item */
+}
+
+/* Hover Effect and Underline Animation */
+.navbar-item::after {
+  content: ''; /* Empty content to create the underline */
+  position: absolute;
+  width: 0%;
+  height: 2px; /* Thickness of the underline */
+  background-color: #665018; /* Color of the underline */
+  left: 0;
+  bottom: -5px; /* Position the underline slightly below the text */
+  transition: width 0.3s ease; /* Underline expansion animation */
+}
+
+/* Underline on Hover */
+.navbar-item:hover::after {
+  width: 30%; /* Expand the underline to 30% on hover */
+}
+
+/* Active Tab (optional, if you need a permanent underline for the active link) */
+.navbar-item.active {
+  color: #382a09; /* Accent color for active state */
+  font-weight: bold;
+  border-bottom: 2px solid #665018; /* Permanent underline for active tab */
+} 

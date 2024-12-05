@@ -1,0 +1,73 @@
+/* Footer container styling */
+.footer {
+  background-color: #857550; /* Footer background color */
+  padding: 16px 0;
+  font-family: 'Poppins', sans-serif; /* Consistent font styling */
+  position: relative; /* Ensure the footer stays within document flow */
+  z-index: 1; /* Prevent overlapping from other elements */
+}
+
+/* Footer content styling */
+.footer-content {
+ 
+  height: 55px;
+  
+}
+
+.register-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.register-text {
+  display: flex;
+  align-items: center;
+}
+
+.register-label {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #fff; /* White text for "Register Now" */
+  margin-top: -13px;
+}
+
+.signup-btn {
+  background-color: #eee8d9; /* Button background matches footer */
+  color: #857550; /* Button text color */
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: -13px;
+}
+
+.signup-btn:hover {
+  background-color: #857550;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Footer bottom section */
+.footer-bottom {
+  background-color: #eee8d9;
+  padding: 12px;
+  color: #857550;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Fix overlap by adding bottom padding to the page */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the entire viewport is filled */
+  padding-bottom: 100px; /* Add space for the footer */
+}

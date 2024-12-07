@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './Chat.css';
+import PopUp from '../Components/PopUp';
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPopUp, setShowPopUp] = useState(false);
 
   const [conversations, setConversations] = useState([
     "how can I deal with my anxiety",
@@ -69,6 +71,10 @@ const Chat = () => {
     setMessages([]);
   };
 
+  const togglePopUp = () => {
+    setShowPopUp(!showPopUp);
+  };
+
   // Scroll to bottom whenever messages change
   useEffect(() => {
     if (messageListRef.current) {
@@ -81,7 +87,7 @@ const Chat = () => {
       <div className="sidebar">
         <div className="sidebar-header">
           <a href="/" style={{ textDecoration: 'none', marginRight: '10px', fontSize: '20px' }}>←</a>
-          <h2 style={{ flexGrow: 1 }}>StarklyAI</h2>
+          <h2 style={{ flexGrow: 1 }}>MoodMateAI</h2>
           <button className="new-chat-button" onClick={handleNewChat}>+ New Chat</button>
         </div>
         <div className="conversation-list">
@@ -97,6 +103,10 @@ const Chat = () => {
             clear all
           </button>
         )}
+        <div className='MoodChecker'>
+        <button className="feeling-button" onClick={togglePopUp}>
+          Mood Checker
+        </button></div>
       </div>
 
       <div className="chat-container">
@@ -130,6 +140,7 @@ const Chat = () => {
           </button>
         </div>
       </div>
+      {showPopUp && <PopUp togglePopUp={togglePopUp} />}
     </div>
   );
 };

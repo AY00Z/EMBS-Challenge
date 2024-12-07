@@ -145,3 +145,31 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.feeling-button {
+    position: fixed; /* Makes the button fixed in position */
+    bottom: 20px; /* Position it 20px from the bottom of the screen */
+    left: 20px; /* Position it 20px from the left side of the screen */
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 19px;
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s, border-color 0.3s;
+    width: 270px;
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+.feeling-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+.MoodChecker{
+    margin-top: 420px;
+    margin-left: 10px;
+  
+}

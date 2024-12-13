@@ -17,51 +17,70 @@ const Chat = () => {
 
   const messageListRef = useRef(null);
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+  const apiUrl = "";
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
   const handleSend = async () => {
     if (inputText.trim() === '') return;
-
+  
+    // Add user input to messages
     const newMessage = {
       text: inputText,
-      sender: 'user',
+      sender: 'user_input',
     };
     setMessages((prev) => [...prev, newMessage]);
     setInputText('');
     setLoading(true);
-
-    try {
-      const response = await axios.post('https://api.example.com/chat', {
-        message: inputText,
+  
+    // Prepare request data
+    const requestData = {
+      user_input: inputText,
+    };
+  
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const psychologistMessage = {
+          text: data.psychologist_response,
+          sender: 'psychologist_response',
+        };
+        setMessages((prevMessages) => [...prevMessages, psychologistMessage]);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+  
+        // Fallback responses for errors
+        const fallbackResponses = [
+          "I'm here to assist you, feel free to ask anything!",
+          "I'm sorry, I couldn't process that request, but I'm here for you!",
+          "It seems there is an issue, but don't worry, I can still help!",
+          "I'm having trouble connecting, but you can keep sharing your thoughts!",
+        ];
+        const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+  
+        const errorMessage = {
+          text: randomResponse,
+          sender: 'psychologist_response',
+        };
+        setMessages((prevMessages) => [...prevMessages, errorMessage]);
+      })
+      .finally(() => {
+        setLoading(false); // Ensure loading is reset regardless of success or error
       });
-
-      const aiMessage = {
-        text: response.data.reply,
-        sender: 'ai',
-      };
-
-      setMessages((prevMessages) => [...prevMessages, aiMessage]);
-
-      if (!conversations.includes(inputText.trim())) {
-        setConversations((prev) => [...prev, inputText.trim()]);
-      }
-
-    } catch (error) {
-      const fallbackResponses = [
-        "I'm here to assist you, feel free to ask anything!",
-        "I'm sorry, I couldn't process that request, but I'm here for you!",
-        "It seems there is an issue, but don't worry, I can still help!",
-        "I'm having trouble connecting, but you can keep sharing your thoughts!"
-      ];
-      const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
-
-      const errorMessage = {
-        text: randomResponse,
-        sender: 'ai',
-      };
-      setMessages((prevMessages) => [...prevMessages, errorMessage]);
-    } finally {
-      setLoading(false);
+  
+    // Add to conversations if not already included
+    if (!conversations.includes(inputText.trim())) {
+      setConversations((prev) => [...prev, inputText.trim()]);
     }
   };
+  
 
   const handleClearAll = () => {
     setConversations([]);

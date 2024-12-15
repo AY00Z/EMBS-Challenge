@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
 import './Chat.css';
 import PopUp from '../Components/PopUp';
 

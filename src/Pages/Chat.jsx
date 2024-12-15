@@ -17,68 +17,79 @@ const Chat = () => {
   const messageListRef = useRef(null);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-  const apiUrl = "https://d22d-34-151-109-205.ngrok-free.app/get_convo";
+  const apiUrl = "https://3828-35-204-70-6.ngrok-free.app/get_convo";
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  const handleSend = async () => {
-    if (inputText.trim() === '') return;
-  
-    // Add user input to messages
-    const newMessage = {
-      text: inputText,
-      sender: 'user_input',
-    };
-    setMessages((prev) => [...prev, newMessage]);
-    setInputText('');
-    setLoading(true);
-  
-    // Prepare request data
-    const requestData = {
-      user_input: inputText,
-    };
-  
-    fetch(apiUrl, {
+const handleSend = async () => {
+  if (inputText.trim() === '') return;
+
+  // Add user input to messages
+  const newMessage = {
+    text: inputText,
+    sender: 'user_input',
+  };
+  setMessages((prev) => [...prev, newMessage]);
+  setInputText('');
+  setLoading(true);
+
+  // Prepare request data
+  const requestData = {
+    user_input: inputText,
+  };
+
+  try {
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(requestData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const psychologistMessage = {
-          text: data.psychologist_response,
-          sender: 'psychologist_response',
-        };
-        setMessages((prevMessages) => [...prevMessages, psychologistMessage]);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-  
-        // Fallback responses for errors
-        const fallbackResponses = [
-          "I'm here to assist you, feel free to ask anything!",
-          "I'm sorry, I couldn't process that request, but I'm here for you!",
-          "It seems there is an issue, but don't worry, I can still help!",
-          "I'm having trouble connecting, but you can keep sharing your thoughts!",
-        ];
-        const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
-  
-        const errorMessage = {
-          text: randomResponse,
-          sender: 'psychologist_response',
-        };
-        setMessages((prevMessages) => [...prevMessages, errorMessage]);
-      })
-      .finally(() => {
-        setLoading(false); // Ensure loading is reset regardless of success or error
-      });
-  
-    // Add to conversations if not already included
-    if (!conversations.includes(inputText.trim())) {
-      setConversations((prev) => [...prev, inputText.trim()]);
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  };
+
+    const data = await response.json(); // Parse the JSON response
+    console.log("Response data:", data);
+
+    // Check if psychologist_response exists
+    if (data.psychologist_response) {
+      const psychologistMessage = {
+        text: data.psychologist_response,
+        sender: 'psychologist_response',
+      };
+      setMessages((prevMessages) => [...prevMessages, psychologistMessage]);
+    } else {
+      console.error("Missing psychologist_response in API response");
+    }
+  } catch (error) {
+    console.error('Error:', error);
+
+    // Fallback responses for errors
+    const fallbackResponses = [
+      "I'm here to assist you, feel free to ask anything!",
+      "I'm sorry, I couldn't process that request, but I'm here for you!",
+      "It seems there is an issue, but don't worry, I can still help!",
+      "I'm having trouble connecting, but you can keep sharing your thoughts!",
+    ];
+    const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+
+    const errorMessage = {
+      text: randomResponse,
+      sender: 'psychologist_response',
+    };
+    setMessages((prevMessages) => [...prevMessages, errorMessage]);
+  } finally {
+    setLoading(false); // Ensure loading is reset regardless of success or error
+  }
+
+  // Add to conversations if not already included
+  if (!conversations.includes(inputText.trim())) {
+    setConversations((prev) => [...prev, inputText.trim()]);
+  }
+};
+
   
 
   const handleClearAll = () => {
@@ -132,7 +143,7 @@ const Chat = () => {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`message ${message.sender === 'user' ? 'user-message' : 'ai-message'}`}
+              className={`message ${message.sender === 'user_input' ? 'user-message' : 'ai-message'}`}
             >
               {message.text}
             </div>

@@ -1,3 +1,27 @@
+# EMBS Challenge Phase 2: Mindmate - Transforming Mental Health Care in Tunisia
+
+Mindmate is an innovative platform designed to revolutionize mental health care by leveraging Artificial Intelligence (AI) and therapist integration. This project combines cutting-edge AI technologies with real-time therapist support to provide users with personalized mental health care solutions.
+
+## Features
+
+### AI-Driven Chatbot
+Engage with an empathetic AI chatbot for real-time emotional support and preliminary mental health assessments.
+
+### Sentiment Analysis
+Advanced NLP techniques analyze user input to detect emotional states and offer tailored assistance.
+
+### Therapist Integration
+Easily find nearby psychotherapists and schedule appointments directly via the platform.
+
+### Personalized Dashboards
+Both users and therapists have access to dashboards for managing interactions and tracking emotional progress.
+
+### Secure Data Handling
+Built with robust security measures to ensure data privacy and compliance with regulations.
+
+## For detailed information
+Visit the [Mindmate AI repository](#).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -37,7 +61,7 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However, we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ## Learn More
 

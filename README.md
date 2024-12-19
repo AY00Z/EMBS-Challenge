@@ -92,3 +92,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Integration File
+A Jupyter Notebook file `integrating-the-mindmate-model-with-a-frontend.ipynb` is included in this repository. This file demonstrates how to communicate with the Mindmate model using FastAPI and Ngrok for rapid development and testing.
+

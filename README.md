@@ -20,7 +20,7 @@ Both users and therapists have access to dashboards for managing interactions an
 Built with robust security measures to ensure data privacy and compliance with regulations.
 
 ## For detailed information
-Visit the [Mindmate AI repository](#).
+Visit the [Mindmate AI repository](https://github.com/NadhemBenhadjali/MindMate-EMBS).
 
 # Getting Started with Create React App
 
